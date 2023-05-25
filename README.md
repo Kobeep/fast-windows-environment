@@ -5,6 +5,7 @@ Kobeep's windows environment
 Script was made in case to faster recreating environment.
 
 ## How to prepare it:
+- Download/Clone(git clone https://github.com/Kobeep/fast-windows-environment.git) the repo. 
 - Put drivers into dedicated catalog and comment/uncomment needed apps otherwise evrything is gonna be installed.
 - Start run.bat, and just wait..
 
