@@ -1,0 +1,1 @@
+vlc,vscode,chrome,spotify

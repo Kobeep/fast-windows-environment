@@ -1,36 +1,29 @@
+@REM Created by Kobeep https://github.com/Kobeep.
+
 @REM Installing the winget tool..
 
-if winget -v (echo "Winget tool is already installed.") else (Install-Module -Name Microsoft.WinGet.Client)
+if EXIST "%ProgramFiles%\WindowsPowerShell\Modules\Microsoft.WinGet.Client" (
+  echo Winget tool is already installed.
+) else (
+  echo Installing winget tool...
+  powershell -ExecutionPolicy Bypass -Command Install-Module -Name Microsoft.WinGet.Client
+)
 
-@REM U are able to choose what do you want to install: apps/drivers/all.
-set /p choice=What do you want to install ? (all/apps/drivers):
+@REM Reading applications from apps.md file
+setlocal EnableDelayedExpansion
 
-@REM Checking the choice of user.
-if %choice%==all | %choice%==All goto apps && goto drivers
-if %choice%==apps | %choice%==Apps goto apps
-if %choice%==drivers | %choice%==Drivers goto drivers
+for /F "delims=" %%a in ('type "apps.md"') do (
+  set app=%%a
+  if not defined app (
+    goto :eof
+  )
 
-:apps
+  @REM Installing application using winget
+  if winget list !app! (
+    echo !app! is already installed.
+  ) else (
+    winget install --silent !app!
+  )
+)
 
-@REM Installing VLC media player.
-if winget list vlc (echo "Vlc media player is already installed") else (winget install "vlc")
-
-@REM Installing Visual Studio Code.
-if winget list vscode (echo "Visual Studio Code is already installed") else (winget install "vscode")
-
-@REM Installing Google Chrome.
-if winget list chrome (echo "Google Chrome is already installed") else (winget install "Google Chrome")
-
-@REM Installing Spotify.
-if winget list Spotify (echo "Spotify is already installed") else (winget install "Spotify")
-
-@REM Installing Keeweb.
-if winget list Keeweb (echo "Keeweb is already installed") else (winget install "Keeweb")
-
-:drivers
-
-@REM start \drivers\ ***.exe
-
-@REM start \drivers\ ***.exe
-
-@REM start \drivers\ ***.exe 
+endlocal

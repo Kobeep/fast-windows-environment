@@ -2,19 +2,27 @@
 Kobeep's windows environment
 
 
-Script was made in case to faster recreating environment.
+This script streamlines the process of setting up your Windows development environment, saving you valuable time.
 
 ## How to prepare it:
 - Download/Clone the repo. 
 '''
 git clone https://github.com/Kobeep/fast-windows-environment.git
 '''
-- Put drivers into dedicated catalog and comment/uncomment needed apps otherwise evrything is gonna be installed.
+- List the desired applications you want to install using winget (the Windows P ackageManager) on separate lines in apps.md.
 - Start run.bat, and just wait..
+Example:
+'''
+vlc,vscode,chrome,spotify,keepassxc
+'''
+## Running the Script:
 
+    -Double-click run.bat or run it from the command line.
+    -Review and Edit apps.md: If you haven't already, add or remove applications from the apps.md file to customize your installation.
+    -Wait: The script will silently install the specified applications using winget.
 
 
 
 ## REQUIREMENTS:
 - Software: Windows 10+
-- Drivers must be as individual files. To avoid problems, the better way is installing by yourself.
+
