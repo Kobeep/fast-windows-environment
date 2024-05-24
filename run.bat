@@ -22,8 +22,5 @@ for /F "delims=" %%a in ('type "apps.md"') do (
   if winget list !app! (
     echo !app! is already installed.
   ) else (
-    winget install --silent !app!
-  )
-)
-
-endlocal
+    winget install --silent !app!git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"

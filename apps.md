@@ -1,1 +1,4 @@
-vlc,vscode,chrome,spotify
+vlc
+vscode
+chrome
+spotify
