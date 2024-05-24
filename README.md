@@ -13,16 +13,17 @@ git clone https://github.com/Kobeep/fast-windows-environment.git
 ```
 
 - List the desired applications you want to install using winget (the Windows P ackageManager) on separate lines in apps.md.
-- Start run.bat, and just wait..
-Example:
+***Example:***
 
 ```markdown
-vlc
-vscode
-chrome
-spotify
-keepassxc
+    vlc
+    vscode
+    chrome
+    spotify
+    keepassxc
 ```
+
+- Start run.bat, and just wait..
 
 ## Running the Script
 
